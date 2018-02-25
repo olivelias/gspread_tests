@@ -11,11 +11,12 @@ scope = ['https://spreadsheets.google.com/feeds']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('Gspread-9149778487d9.json', scope)
 client = gspread.authorize(credentials)
 
-# Ouverture du fichier
+# Open file
 sheet = client.open("Gspreadtest").sheet1
 
-# Affichage du contenu de tout le fichier
+# Print file records
 records = sheet.get_all_records()
 print (records)
 
-#
+# Add record
+sheet.update_acell('B1', 'Toto')
